@@ -1,15 +1,39 @@
-import { Navbar } from "../components"
+import { AllDataContainer, Navbar, SearchContainer } from "../components";
+import { useLoaderData } from "react-router-dom";
+import { useContext, createContext } from "react";
+import customFetch from "../utils/customFetch";
 
+export const loader = async ({ request }) => {
+  try {
+    const params = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
+    const { data } = await customFetch.get("/app", { params });
+    console.log(data);
+    return { data, searchParams: { ...params } };
+  } catch (error) {
+    return error;
+  }
+};
+
+const allDataContext = createContext();
 
 const HomeLayout = () => {
+  const { data, searchValues } = useLoaderData();
   return (
-    <div >
+    <allDataContext.Provider value={{ data, searchValues }}>
       <nav className="bg-gray-100">
         <Navbar />
       </nav>
-
-    </div>
+      <div>
+        <div>
+          <div><SearchContainer/>
+          <AllDataContainer/></div>
+        </div>
+      </div>
+    </allDataContext.Provider>
   );
-}
+};
 
-export default HomeLayout
+export const useAllDataContext = () => useContext(allDataContext);
+export default HomeLayout;
