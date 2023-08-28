@@ -32,10 +32,8 @@ const HomeLayout = ({ defaultMonth }) => {
 
   useEffect(() => {
     if (!month) {
-      // If month is not provided in the URL, navigate to the default month
       navigate(`/${defaultMonth}`);
     } else {
-      // Fetch data for the specified month
       fetchDataAndUpdateState(month);
     }
   }, [month, search]);
