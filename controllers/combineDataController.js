@@ -1,20 +1,20 @@
 
 export const getCombineData = async (req, res) => {
   try {
-    const selectedMonthNumber = parseInt(req.query.month);
+    const selectedMonthNumber = parseInt(req.params.month);
 
     const StatsData = await fetch(
-      `http://localhost:5100/api/v1/app/stats?month=${selectedMonthNumber}`
+      `http://localhost:5100/api/v1/app/${selectedMonthNumber}/stats`
     );
     const totalStats = await StatsData.json()
 
     const pieData = await fetch(
-      `http://localhost:5100/api/v1/app/pieChart?month=${selectedMonthNumber}`
+      `http://localhost:5100/api/v1/app/${selectedMonthNumber}/pieChart`
     );
     const pieChart = await pieData.json();
 
     const barData = await fetch(
-      `http://localhost:5100/api/v1/app/barChart?month=${selectedMonthNumber}`
+      `http://localhost:5100/api/v1/app/${selectedMonthNumber}/barChart`
     );
     const barChart = await barData.json();
 

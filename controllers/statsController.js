@@ -2,7 +2,7 @@ import App from "../model/AppModel.js";
 
 export const getStats = async (req, res) => {
   try {
-    const { month } = req.query;
+    const { month } = req.params;
     const selectedMonthNumber = parseInt(month);
     const totalSaleAmount = await App.aggregate([
       {

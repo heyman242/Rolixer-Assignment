@@ -2,31 +2,48 @@ import App from "../model/AppModel.js";
 
 export const getAllData = async (req, res) => {
   try {
-    //search
-    const { search } = req.query;
+    // Extract the month parameter from the URL
+    const selectedMonth = parseInt(req.params.month);
+
     let query = {};
-    if (search) {
+
+    // Search query and include the month filter
+    if (req.query.search) {
       query = {
-        $or: [
-          { title: { $regex: search, $options: "i" } },
-          { description: { $regex: search, $options: "i" } },
-          { price: parseFloat(search) || 0 },
+        $and: [
+          { month: selectedMonth },
+          {
+            $or: [
+              { title: { $regex: req.query.search, $options: "i" } },
+              { description: { $regex: req.query.search, $options: "i" } },
+              { price: parseFloat(req.query.search) || 0 },
+            ],
+          },
         ],
       };
+    } else {
+      query = { month: selectedMonth };
     }
-    //pagination
-     const page = Number(req.query.page) || 1;
-     const limit = 10;
-     const skip = (page - 1) * limit;
 
+    // Pagination
+    const page = Number(req.query.page) || 1;
+    const limit = 10;
+    const skip = (page - 1) * limit;
 
-    const data = await App.find(query).skip(skip).limit(limit);
+    const transactions = await App.find(query).skip(skip).limit(limit);
     const total = await App.countDocuments(query);
     const numOfPages = Math.ceil(total / limit);
 
-    res.status(200).json({ total, numOfPages, currentPage: page, data });
+    res.status(200).json({
+      selectedMonth,
+      total,
+      numOfPages,
+      currentPage: page,
+      transactions,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
+

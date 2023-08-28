@@ -2,7 +2,7 @@ import App from "../model/AppModel.js";
 
 export const getBarChart = async (req, res) => {
   try {
-    const monthNumber = parseInt(req.query.month);
+    const monthNumber = parseInt(req.params.month);
 
     const priceRanges = [
       { min: 0, max: 100 },

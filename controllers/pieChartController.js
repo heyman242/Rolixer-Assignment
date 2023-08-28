@@ -2,7 +2,7 @@ import App from "../model/AppModel.js";
 
 export const getPieChart = async (req, res) => {
   try {
-    const selectedMonthNumber = parseInt(req.query.month);
+    const selectedMonthNumber = parseInt(req.params.month);
 
     const items = await App.find({
       month: selectedMonthNumber,

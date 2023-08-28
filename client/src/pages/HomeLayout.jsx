@@ -1,4 +1,4 @@
-import { AllDataContainer, Navbar, SearchContainer } from "../components";
+import { AllDataContainer, Navbar, SearchContainer, SelectContainer } from "../components";
 import { useLoaderData } from "react-router-dom";
 import { useContext, createContext } from "react";
 import customFetch from "../utils/customFetch";
@@ -27,8 +27,13 @@ const HomeLayout = () => {
       </nav>
       <div>
         <div>
-          <div><SearchContainer/>
-          <AllDataContainer/></div>
+          <div>
+            <SearchContainer />
+            <SelectContainer/>
+            <div>
+              <AllDataContainer />
+            </div>
+          </div>
         </div>
       </div>
     </allDataContext.Provider>
