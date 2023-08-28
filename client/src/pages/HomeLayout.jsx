@@ -7,6 +7,7 @@ import {
   PageButtonContainer,
   StatsContainer,
   BarChartContainer,
+  PieChartContainer,
 } from "../components";
 import { createContext, useContext } from "react";
 import customFetch from "../utils/customFetch";
@@ -83,16 +84,15 @@ const HomeLayout = ({ defaultMonth }) => {
         </div>
 
         {/* Column 2: Stats and Chart */}
-        <div className="p-4 flex flex-row items-center justify-between">
-          <div className="w-1/3 flex items-center justify-center ">
+        <div className="p-4 gap-1 flex flex-row items-center justify-between">
+          <div className="w-1/4 flex items-center justify-center ">
             <StatsContainer />
           </div>
-          <div className="w-2/3 text-center ">
-            Bar chart for month {data.selectedMonth}
+          <div className="w-2/4 ">
             <BarChartContainer />
           </div>
-          <div>
-            
+          <div className="w-1/4">
+            <PieChartContainer/>
           </div>
         </div>
         {/* Column 3: All Data */}

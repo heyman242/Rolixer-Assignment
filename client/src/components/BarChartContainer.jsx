@@ -37,9 +37,9 @@ const BarChartContainer = () => {
   console.log(chartData);
 
   return (
-    <> 
+    <> <div className="text-center">Bar chart for month {data.selectedMonth}</div>
       <ResponsiveContainer width="100%" height={400}>
-        <BarChart data={chartData}>
+        <BarChart data={chartData} >
           <CartesianGrid strokeDasharray="3 " />
           <XAxis dataKey="range" />
           <YAxis allowDecimals={false} />
