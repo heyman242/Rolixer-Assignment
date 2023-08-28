@@ -6,6 +6,7 @@ import {
   SearchContainer,
   PageButtonContainer,
   StatsContainer,
+  BarChartContainer,
 } from "../components";
 import { createContext, useContext } from "react";
 import customFetch from "../utils/customFetch";
@@ -79,7 +80,7 @@ const HomeLayout = ({ defaultMonth }) => {
                 </select>
               </div>
             </div>
-            <div><StatsContainer/></div>
+            <div><StatsContainer/><BarChartContainer/></div>
             <div>
               <div>
                 <AllDataContainer />
