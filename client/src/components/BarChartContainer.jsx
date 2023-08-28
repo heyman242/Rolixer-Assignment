@@ -37,10 +37,14 @@ const BarChartContainer = () => {
   console.log(chartData);
 
   return (
-    <> <div className="text-center">Bar chart for month {data.selectedMonth}</div>
+    <>
+      {" "}
+      <div className="text-center text-2xl font-semibold ">
+        Bar chart for month {data.selectedMonth}
+      </div>
       <ResponsiveContainer width="100%" height={400}>
-        <BarChart data={chartData} >
-          <CartesianGrid strokeDasharray="3 " />
+        <BarChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="range" />
           <YAxis allowDecimals={false} />
           <Tooltip />

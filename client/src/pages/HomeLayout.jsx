@@ -85,18 +85,18 @@ const HomeLayout = ({ defaultMonth }) => {
 
         {/* Column 2: Stats and Chart */}
         <div className="p-4 gap-1 flex flex-row items-center justify-between">
-          <div className="w-1/4 flex items-center justify-center ">
+          <div className="w-1/5 text-center items-center justify-center shadow-xl ">
             <StatsContainer />
           </div>
-          <div className="w-2/4 ">
+          <div className="w-3/5  border border-gray-500 rounded-xl shadow-xl cursor-pointer  ">
             <BarChartContainer />
           </div>
-          <div className="w-1/4">
-            <PieChartContainer/>
+          <div className="w-1/5 border border-gray-500 rounded-xl shadow-xl transform hover:scale-110 transition duration-300 cursor-pointer">
+            <PieChartContainer />
           </div>
         </div>
         {/* Column 3: All Data */}
-        <div className=" p-4">
+        <div className=" p-8">
           <div>
             <AllDataContainer />
           </div>

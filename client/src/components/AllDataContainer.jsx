@@ -23,7 +23,10 @@ const AllDataContainer = () => {
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transaction._id} className="border-t border-gray-300">
+            <tr
+              key={transaction._id}
+              className="border-t border-gray-300 hover:bg-violet-300 transform hover:scale-95 hover:rounded-lg transition duration-300 cursor-pointer "
+            >
               <td className="p-2 text-sm font-semibold">{transaction.id}</td>
               <td className="p-2 text-sm font-semibold">{transaction.title}</td>
               <td className="p-2 text-sm font-semibold">{transaction.price}</td>

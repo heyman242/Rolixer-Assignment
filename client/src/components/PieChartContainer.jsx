@@ -34,9 +34,11 @@ const PieChartContainer = () => {
   }));
 
   return (
-    <div>
-      <h2 className="text-center">Pie Chart for Month {data.selectedMonth}</h2>
-      <ResponsiveContainer width="100%" height={390}>
+    <div className="hover:bg-violet-300 hover:rounded-xl">
+      <h2 className="text-center text-2xl font-semibold ">
+        Pie Chart for Month {data.selectedMonth}
+      </h2>
+      <ResponsiveContainer width="100%" height={400}>
         <PieChart>
           <Pie
             dataKey="value"
