@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { AllDataContainer, Navbar, SearchContainer } from "../components";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
+import {
+  AllDataContainer,
+  Navbar,
+  SearchContainer,
+  PageButtonContainer,
+} from "../components";
 import { createContext, useContext } from "react";
-import customFetch from '../utils/customFetch'
+import customFetch from "../utils/customFetch";
 
 const allDataContext = createContext();
 
 const HomeLayout = () => {
   const { search } = useLocation();
   const { month } = useParams();
-  
+  const navigate = useNavigate();
+
   const [data, setData] = useState(null);
 
   const fetchDataAndUpdateState = async (newMonth) => {
     try {
-      const response = await customFetch.get(`/app/${newMonth || 3}`, {
+      const response = await customFetch.get(`/app/${newMonth}`, {
         params: new URLSearchParams(search),
       });
       console.log(response.data);
@@ -30,9 +36,8 @@ const HomeLayout = () => {
 
   const handleMonthChange = (newMonth) => {
     fetchDataAndUpdateState(newMonth);
-    
+    navigate(`/${newMonth}`);
   };
-
   return (
     <allDataContext.Provider value={{ data, search }}>
       <nav className="bg-gray-100">
@@ -50,7 +55,6 @@ const HomeLayout = () => {
                 name="selectedMonth"
                 id="selectedMonth"
                 onChange={(e) => handleMonthChange(e.target.value)}
-                defaultValue={3}
                 value={month}
                 className="px-2 py-1 border border-gray-300 rounded-md"
               >
@@ -69,7 +73,10 @@ const HomeLayout = () => {
               </select>
             </div>
             <div>
-              <AllDataContainer />
+              <div>
+                <AllDataContainer />
+              </div>
+              <PageButtonContainer />
             </div>
           </div>
         </div>

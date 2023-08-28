@@ -4,7 +4,7 @@ import { HomeLayout } from "./pages";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/:month",
     element: <HomeLayout />,
   },
 ]);
