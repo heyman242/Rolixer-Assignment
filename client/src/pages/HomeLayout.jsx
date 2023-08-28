@@ -11,7 +11,7 @@ import customFetch from "../utils/customFetch";
 
 const allDataContext = createContext();
 
-const HomeLayout = () => {
+const HomeLayout = ({ defaultMonth }) => {
   const { search } = useLocation();
   const { month } = useParams();
   const navigate = useNavigate();
@@ -31,7 +31,13 @@ const HomeLayout = () => {
   };
 
   useEffect(() => {
-    fetchDataAndUpdateState(month);
+    if (!month) {
+      // If month is not provided in the URL, navigate to the default month
+      navigate(`/${defaultMonth}`);
+    } else {
+      // Fetch data for the specified month
+      fetchDataAndUpdateState(month);
+    }
   }, [month, search]);
 
   const handleMonthChange = (newMonth) => {
