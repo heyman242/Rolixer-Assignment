@@ -5,6 +5,7 @@ import {
   Navbar,
   SearchContainer,
   PageButtonContainer,
+  StatsContainer,
 } from "../components";
 import { createContext, useContext } from "react";
 import customFetch from "../utils/customFetch";
@@ -50,32 +51,35 @@ const HomeLayout = ({ defaultMonth }) => {
       <div>
         <div>
           <div>
-            <SearchContainer />
-            <div className="mt-4">
-              <label htmlFor="selectedMonth" className="mr-2">
-                Select Month:
-              </label>
-              <select
-                name="selectedMonth"
-                id="selectedMonth"
-                onChange={(e) => handleMonthChange(e.target.value)}
-                value={month}
-                className="px-2 py-1 border border-gray-300 rounded-md"
-              >
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-              </select>
+            <div>
+              <SearchContainer />
+              <div className="mt-4">
+                <label htmlFor="selectedMonth" className="mr-2">
+                  Select Month:
+                </label>
+                <select
+                  name="selectedMonth"
+                  id="selectedMonth"
+                  onChange={(e) => handleMonthChange(e.target.value)}
+                  value={month}
+                  className="px-2 py-1 border border-gray-300 rounded-md"
+                >
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+              </div>
             </div>
+            <div><StatsContainer/></div>
             <div>
               <div>
                 <AllDataContainer />
