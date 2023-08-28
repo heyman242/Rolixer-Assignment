@@ -6,7 +6,7 @@ const SearchContainer = () => {
   const search = searchValues;
   const submit = useSubmit();
 
-  const debounce = (onChange) => { 
+  const debounce = (onChange) => {
     let timeout;
     return (e) => {
       const form = e.currentTarget.form;
