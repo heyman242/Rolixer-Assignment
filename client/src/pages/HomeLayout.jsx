@@ -49,44 +49,59 @@ const HomeLayout = ({ defaultMonth }) => {
       <nav className="bg-gray-100">
         <Navbar />
       </nav>
-      <div>
-        <div>
+      <div className="">
+        {/* Column 1: Search and Select */}
+        <div className=" p-4 flex">
+          <div className="flex-grow">
+            <SearchContainer />
+          </div>
+          <div className="ml-4">
+            <label htmlFor="selectedMonth" className="mr-2">
+              Select Month:
+            </label>
+            <select
+              name="selectedMonth"
+              id="selectedMonth"
+              onChange={(e) => handleMonthChange(e.target.value)}
+              value={month}
+              className="px-2 py-1 border border-gray-300 rounded-md"
+            >
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Column 2: Stats and Chart */}
+        <div className="p-4 flex flex-row items-center justify-between">
+          <div className="w-1/3 flex items-center justify-center ">
+            <StatsContainer />
+          </div>
+          <div className="w-2/3 text-center ">
+            Bar chart for month {data.selectedMonth}
+            <BarChartContainer />
+          </div>
           <div>
-            <div>
-              <SearchContainer />
-              <div className="mt-4">
-                <label htmlFor="selectedMonth" className="mr-2">
-                  Select Month:
-                </label>
-                <select
-                  name="selectedMonth"
-                  id="selectedMonth"
-                  onChange={(e) => handleMonthChange(e.target.value)}
-                  value={month}
-                  className="px-2 py-1 border border-gray-300 rounded-md"
-                >
-                  <option value="1">January</option>
-                  <option value="2">February</option>
-                  <option value="3">March</option>
-                  <option value="4">April</option>
-                  <option value="5">May</option>
-                  <option value="6">June</option>
-                  <option value="7">July</option>
-                  <option value="8">August</option>
-                  <option value="9">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12">December</option>
-                </select>
-              </div>
-            </div>
-            <div><StatsContainer/><BarChartContainer/></div>
-            <div>
-              <div>
-                <AllDataContainer />
-              </div>
-              <PageButtonContainer />
-            </div>
+            
+          </div>
+        </div>
+        {/* Column 3: All Data */}
+        <div className=" p-4">
+          <div>
+            <AllDataContainer />
+          </div>
+          <div className="mt-4">
+            <PageButtonContainer />
           </div>
         </div>
       </div>
