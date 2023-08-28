@@ -2,12 +2,10 @@ import App from "../model/AppModel.js";
 
 export const getAllData = async (req, res) => {
   try {
-    // Extract the month parameter from the URL
     const selectedMonth = parseInt(req.params.month);
 
     let query = {};
 
-    // Search query and include the month filter
     if (req.query.search) {
       query = {
         $and: [
