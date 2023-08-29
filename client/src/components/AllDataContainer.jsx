@@ -8,7 +8,7 @@ const AllDataContainer = () => {
   }
   const { transactions } = data;
   return (
-    <div className="max-w-7xl mx-auto  rounded-lg shadow-lg border border-gray-300">
+    <div className="max-w-6xl mx-auto  rounded-lg shadow-lg border border-gray-300">
       <table>
         <thead className="min-w-full border-collapse border border-gray-300">
           <tr className="bg-gray-100">

@@ -7,14 +7,21 @@ const app = express();
 
 import appRouter from './routes/appRouter.js'
 
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import path from "path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
 app.use("/api/v1/app", appRouter)
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+});
 
 const port = process.env.PORT || 5100;
 try {
