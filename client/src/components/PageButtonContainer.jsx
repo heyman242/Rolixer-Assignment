@@ -17,33 +17,32 @@ const PageButtonContainer = () => {
     navigate(`${pathname}?${searchParams.toString()}`);
   };
 
-  const renderPageButtons = () => {
-    const pageButtons = [];
-
-    pageButtons.push(
+  return (
+    <div className="flex justify-center mt-4">
       <button
-        key="prev-btn"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
+        className={`px-4 py-2 rounded-l-md ${
+          currentPage === 1
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-blue-500 hover:bg-blue-600"
+        } text-white`}
       >
         Prev
       </button>
-    );
-
-    pageButtons.push(
       <button
-        key="next-btn"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === numOfPages}
+        className={`px-4 py-2 rounded-r-md ${
+          currentPage === numOfPages
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-blue-500 hover:bg-blue-600"
+        } text-white`}
       >
         Next
       </button>
-    );
-
-    return pageButtons;
-  };
-
-  return <div>{renderPageButtons()}</div>;
+    </div>
+  );
 };
 
 export default PageButtonContainer;

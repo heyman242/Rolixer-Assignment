@@ -17,7 +17,7 @@ export const getBarChart = async (req, res) => {
       { min: 901, max: Number.POSITIVE_INFINITY },
     ];
 
-    const priceRangeCounts = {};
+    const priceRangeCounts = [];
 
     const items = await App.find({
       month: monthNumber,
@@ -28,9 +28,10 @@ export const getBarChart = async (req, res) => {
       const count = items.filter(
         (item) => item.price >= min && item.price <= max
       ).length;
-      priceRangeCounts[
-        `${min}-${max === Number.POSITIVE_INFINITY ? "above" : max}`
-      ] = count;
+      priceRangeCounts.push({
+        range: `${min}-${max === Number.POSITIVE_INFINITY ? "above" : max}`,
+        count,
+      });
     }
 
     res.status(200).json(priceRangeCounts);

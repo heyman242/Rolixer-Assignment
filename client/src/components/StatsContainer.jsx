@@ -31,7 +31,7 @@ const StatsContainer = () => {
   const { totalSaleAmount, totalSoldItems, totalNotSoldItems } = statsData;
 
   return (
-    <div className=" p-1 border border-gray-500 rounded-xl hover:bg-violet-300 transform hover:scale-110 transition duration-300 cursor-pointer ">
+    <div className=" p-1 border border-gray-500 rounded-xl hover:bg-teal-200 transform hover:scale-110 transition duration-300 cursor-pointer ">
       <h2 className="text-2xl font-semibold mb-4">
         Statistics for Month {data.selectedMonth}
       </h2>

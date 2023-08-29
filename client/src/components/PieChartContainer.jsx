@@ -34,7 +34,7 @@ const PieChartContainer = () => {
   }));
 
   return (
-    <div className="hover:bg-violet-300 hover:rounded-xl">
+    <div className="hover:bg-teal-200 hover:rounded-xl">
       <h2 className="text-center text-2xl font-semibold ">
         Pie Chart for Month {data.selectedMonth}
       </h2>

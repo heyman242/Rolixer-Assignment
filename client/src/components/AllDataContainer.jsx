@@ -8,7 +8,7 @@ const AllDataContainer = () => {
   }
   const { transactions } = data;
   return (
-    <div className="max-w-8xl mx-auto  rounded-lg shadow-lg border border-gray-300">
+    <div className="max-w-7xl mx-auto  rounded-lg shadow-lg border border-gray-300">
       <table>
         <thead className="min-w-full border-collapse border border-gray-300">
           <tr className="bg-gray-100">
@@ -25,7 +25,7 @@ const AllDataContainer = () => {
           {transactions.map((transaction) => (
             <tr
               key={transaction._id}
-              className="border-t border-gray-300 hover:bg-violet-300 transform hover:scale-95 hover:rounded-lg transition duration-300 cursor-pointer "
+              className="border-t border-gray-300 hover:bg-teal-200 transform hover:scale-125 hover:rounded-full transition duration-300 cursor-pointer "
             >
               <td className="p-2 text-sm font-semibold">{transaction.id}</td>
               <td className="p-2 text-sm font-semibold">{transaction.title}</td>
