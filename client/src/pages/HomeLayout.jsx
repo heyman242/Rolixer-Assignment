@@ -50,7 +50,7 @@ const HomeLayout = ({ defaultMonth }) => {
       <nav className="bg-gray-100">
         <Navbar />
       </nav>
-      <div className="">
+      <div className=" bg-stone-50">
         {/* Column 1: Search and Select */}
         <div className=" p-4 flex items-center justify-between">
           <div className="flex-grow">
