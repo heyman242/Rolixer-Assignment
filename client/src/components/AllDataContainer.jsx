@@ -13,6 +13,7 @@ const AllDataContainer = () => {
         <thead className="min-w-full border-collapse border border-gray-300">
           <tr className="bg-gray-100">
             <th className="p-2 text-center">Id</th>
+            <th className="p-2 text-center">Image</th>
             <th className="p-2 text-center">Title</th>
             <th className="p-2 text-center">Price</th>
             <th className="p-2 text-center">Description</th>
@@ -28,6 +29,9 @@ const AllDataContainer = () => {
               className="border-t border-gray-300 hover:bg-teal-100 transform hover:scale-125 hover:rounded-full transition duration-300 cursor-pointer "
             >
               <td className="p-2 text-sm font-semibold">{transaction.id}</td>
+              <td className="p-2 text-sm font-semibold">
+                <img src={transaction.image} />
+              </td>
               <td className="p-2 text-sm font-semibold">{transaction.title}</td>
               <td className="p-2 text-sm font-semibold">{transaction.price}</td>
               <td className="p-2 text-sm font-semibold">

@@ -56,8 +56,8 @@ const HomeLayout = ({ defaultMonth }) => {
           <div className="flex-grow">
             <SearchContainer />
           </div>
-          <div>data</div>
-          <div className="ml-4">
+
+          <div className="ml-2">
             <label
               htmlFor="selectedMonth"
               className="mr-2 text-2xl font-semibold"
