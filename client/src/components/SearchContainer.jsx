@@ -27,6 +27,7 @@ const SearchContainer = () => {
           onChange={debounce((form) => {
             submit(form);
           })}
+          className="px-4 py-2 bg-teal-100 border border-gray-700 rounded-md focus:outline-none focus:ring focus:border-blue-500"
         />
       </Form>
     </div>

@@ -28,7 +28,7 @@ const PageButtonContainer = () => {
             : "bg-blue-500 hover:bg-blue-600"
         } text-white`}
       >
-        Prev
+        Previous-page
       </button>
       <button
         onClick={() => handlePageChange(currentPage + 1)}
@@ -39,7 +39,7 @@ const PageButtonContainer = () => {
             : "bg-blue-500 hover:bg-blue-600"
         } text-white`}
       >
-        Next
+        Next-page
       </button>
     </div>
   );

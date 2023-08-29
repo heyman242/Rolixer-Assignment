@@ -52,12 +52,16 @@ const HomeLayout = ({ defaultMonth }) => {
       </nav>
       <div className="">
         {/* Column 1: Search and Select */}
-        <div className=" p-4 flex">
+        <div className=" p-4 flex items-center justify-between">
           <div className="flex-grow">
             <SearchContainer />
           </div>
+          <div>data</div>
           <div className="ml-4">
-            <label htmlFor="selectedMonth" className="mr-2">
+            <label
+              htmlFor="selectedMonth"
+              className="mr-2 text-2xl font-semibold"
+            >
               Select Month:
             </label>
             <select
@@ -65,7 +69,7 @@ const HomeLayout = ({ defaultMonth }) => {
               id="selectedMonth"
               onChange={(e) => handleMonthChange(e.target.value)}
               value={month}
-              className="px-2 py-1 border border-gray-300 rounded-md"
+              className="px-2 py-1 border border-gray-300 rounded-md bg-teal-100 focus:outline-none focus:ring focus:border-blue-500 text-2xl font-semibold"
             >
               <option value="1">January</option>
               <option value="2">February</option>

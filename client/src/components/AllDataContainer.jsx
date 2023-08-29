@@ -25,7 +25,7 @@ const AllDataContainer = () => {
           {transactions.map((transaction) => (
             <tr
               key={transaction._id}
-              className="border-t border-gray-300 hover:bg-teal-200 transform hover:scale-125 hover:rounded-full transition duration-300 cursor-pointer "
+              className="border-t border-gray-300 hover:bg-teal-100 transform hover:scale-125 hover:rounded-full transition duration-300 cursor-pointer "
             >
               <td className="p-2 text-sm font-semibold">{transaction.id}</td>
               <td className="p-2 text-sm font-semibold">{transaction.title}</td>

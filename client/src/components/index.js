@@ -5,3 +5,4 @@ export { default as PageButtonContainer } from "./PageButtonContainer";
 export { default as StatsContainer } from "./StatsContainer";
 export { default as BarChartContainer } from "./BarChartContainer";
 export { default as PieChartContainer } from "./PieChartContainer";
+export { default as CombineDataContainer } from "./CombineDataContainer";
